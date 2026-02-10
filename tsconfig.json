@@ -21,7 +21,15 @@
     "resolveJsonModule": true,
     "noImplicitAny": true,
     "strictBindCallApply": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "@common/*": ["./src/common/*"],
+      "@common": ["./src/common"],
+      "@infra/*": ["./src/infrastructure/*"],
+      "@infra": ["./src/infrastructure"],
+      "@modules/*": ["./src/modules/*"],
+      "@modules": ["./src/modules"]
+    }
   },
   "include": ["./src/**/*"],
   "exclude": ["./node_modules", "./dist"]
