@@ -94,8 +94,16 @@ export default defineConfig([
           format: ['camelCase'],
         },
         {
-          selector: 'variable',
+          selector: 'import',
+          format: ['camelCase', 'PascalCase'],
+        },
+        {
+          selector: 'property',
           format: ['camelCase', 'UPPER_CASE'],
+        },
+        {
+          selector: 'variable',
+          format: ['camelCase', 'UPPER_CASE', 'PascalCase'],
         },
         {
           selector: 'parameter',

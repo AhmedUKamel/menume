@@ -4,13 +4,19 @@ import {
   FastifyAdapter,
   NestFastifyApplication,
 } from '@nestjs/platform-fastify';
+import { ConfigService } from '@nestjs/config';
+import { IServerConfig } from '@infra/config/server/server.types';
 
 async function bootstrap(): Promise<void> {
   const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
     new FastifyAdapter(),
   );
-  await app.listen(process.env.PORT ?? 3000);
+
+  const configService = app.get(ConfigService);
+
+  const { port, host } = configService.getOrThrow<IServerConfig>('server');
+  await app.listen({ port, host });
 }
 
 void bootstrap();
